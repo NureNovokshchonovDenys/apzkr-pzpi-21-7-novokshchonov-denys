@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Панель керування</h2>
+<h3>Ваші кімнати</h3>
+<ul class="list-group">
+    {% for room in rooms %}
+    <li class="list-group-item">
+        <a href="{{ url_for('room', room_id=room._id) }}">{{ room.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Додати кімнату</h3>
+<form method="POST" action="{{ url_for('create_room') }}">
+    <div class="form-group">
+        <label for="room_name">Назва кімнати</label>
+        <input type="text" class="form-control" id="room_name" name="room_name" required>
+    </div>
+    <div class="form-group">
+        <label for="sensors">Датчики (введіть COM порт через кому)</label>
+        <input type="text" class="form-control" id="sensors" name="sensors" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Додати</button>
+</form>
+{% endblock %}

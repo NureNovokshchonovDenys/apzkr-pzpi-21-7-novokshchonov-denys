@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ room.name }}</h2>
+<h3>Датчики</h3>
+<ul class="list-group">
+    {% for sensor in sensors %}
+    <li class="list-group-item">
+        <strong>COM:</strong> {{ sensor.COM }}<br>
+        <strong>Вологість:</strong> {{ sensor.h }}<br>
+        <strong>Температура:</strong> {{ sensor.t }}<br>
+        <strong>Тиск:</strong> {{ sensor.p }}<br>
+        <strong>Забруднення:</strong> {{ sensor.pol }}<br>
+        <strong>Точка роси:</strong> {{ sensor.dewp }}<br>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
